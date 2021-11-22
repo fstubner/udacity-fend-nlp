@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My NLP App</title>
+  </head>
+  <body>
+    <header>
+      <div>NLP App</div>
+    </header>
+    <main>
+      <section>
+        <form onsubmit="Client.formSubmit(event)">
+          <input
+            id="url"
+            type="text"
+            placeholder="Enter a URL..."
+            oninput="this.setCustomValidity('')"
+          />
+          <input type="submit" />
+        </form>
+      </section>
+      <section>
+        <div id="result-header">Form Results</div>
+        <span
+          >Confidence:
+          <div id="confidence"></div></span
+        ><br />
+        <span
+          >Agreement:
+          <div id="agreement"></div></span
+        ><br />
+        <span
+          >Subjectivity:
+          <div id="subjectivity"></div></span
+        ><br />
+        <span
+          >Irony:
+          <div id="irony"></div></span
+        ><br />
+      </section>
+    </main>
+    <footer>
+      <span
+        >Made possible by
+        <a
+          href="https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc/what-is-sentiment-analysis"
+          >MeaningCloud Sentiment Analysis API</a
+        ></span
+      >
+    </footer>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+  </body>
+</html>
